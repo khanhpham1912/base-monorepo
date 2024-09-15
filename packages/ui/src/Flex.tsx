@@ -1,9 +1,7 @@
-export interface FlexProps {}
+export interface FlexProps {
+  children: React.ReactNode;
+}
 
-export const Flex = ({}:FlexProps) => {
-  return (
-    <div>
-      Flex 
-    </div>
-  );
+export const Flex = ({ children }: FlexProps) => {
+  return <div>{children}</div>;
 };
