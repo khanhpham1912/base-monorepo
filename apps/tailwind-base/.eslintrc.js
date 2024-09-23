@@ -1,13 +1,10 @@
-const { resolve } = require("node:path");
+const { resolve } = require("node:path")
 
-const project = resolve(process.cwd(), "tsconfig.json");
+const project = resolve(process.cwd(), "tsconfig.json")
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
-  extends: [    "eslint:recommended",
-    "prettier",
-    require.resolve("@vercel/style-guide/eslint/next"),
-    ],
+  extends: ["eslint:recommended", "next/core-web-vitals", "next", "prettier"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: true,
@@ -34,4 +31,4 @@ module.exports = {
     "node_modules/",
   ],
   overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
-};
+}
