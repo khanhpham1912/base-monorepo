@@ -7,7 +7,12 @@ module.exports = {
   extends: ["eslint:recommended", "next/core-web-vitals", "next", "prettier"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: true,
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: "latest",
+    sourceType: "module",
+    tsconfigRootDir: __dirname,
   },
   globals: {
     React: true,
