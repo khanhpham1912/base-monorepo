@@ -1,16 +1,19 @@
 {
-  "name": "tailwind-base",
+  "name": "catalyst",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
+    "@headlessui/react": "^2.1.6",
+    "@heroicons/react": "^2.1.3",
     "clsx": "^2.1.1",
+    "framer-motion": "^11.2.6",
     "next": "14.2.11",
     "react": "^18",
     "react-dom": "^18",

@@ -4,7 +4,7 @@ const project = resolve(process.cwd(), "tsconfig.json")
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
-  extends: ["eslint:recommended", "next/core-web-vitals", "next", "prettier"],
+  extends: ["next/core-web-vitals", "next", "prettier"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {

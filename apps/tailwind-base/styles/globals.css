@@ -55,9 +55,9 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+  /* * {
+    @apply round;
+  } */
   body {
     @apply bg-background text-foreground antialiased text-sm;
   }
