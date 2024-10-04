@@ -6,6 +6,17 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    "sm:col-span-6",
+    {
+      pattern: /gap-(x|y)?-(0|0.5|1|1.5|2|2.5|3|3.5|4|5|6|7|8|9|10|11|12)/,
+    },
+    {
+      pattern:
+        /^(sm|md|lg|xl|2xl)?:?(col|row)-span-(1|2|3|4|5|6|7|8|9|10|11|12)$/,
+      variants: ["sm", "md", "lg", "xl", "2xl"],
+    },
+  ],
   theme: {
     extend: {
       colors: {
@@ -57,6 +68,7 @@ const config: Config = {
       },
     },
   },
+
   plugins: [],
 }
 export default config
