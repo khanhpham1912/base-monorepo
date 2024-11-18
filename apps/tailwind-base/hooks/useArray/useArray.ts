@@ -1,3 +1,4 @@
+// TODO: implement deep clone, deep compare function
 import { useCallback, useRef, useState } from "react"
 
 export interface ArrayActions<T> {
@@ -66,14 +67,14 @@ export function useArray<T>(initialValue?: T[]): [T[], ArrayActions<T>] {
   }, [])
 
   const pop = useCallback(() => {
-    const _array: T[] = JSON.parse(JSON.stringify(array))
+    const _array: T[] = [...array]
     const popValue = _array.pop()
     setArray(_array)
     return popValue
   }, [array])
 
   const shift = useCallback(() => {
-    const _array: T[] = JSON.parse(JSON.stringify(array))
+    const _array: T[] = [...array]
     const shiftValue = _array.shift()
     setArray(_array)
     return shiftValue
@@ -81,7 +82,7 @@ export function useArray<T>(initialValue?: T[]): [T[], ArrayActions<T>] {
 
   const unshift = useCallback(
     (item: T) => {
-      const _array: T[] = JSON.parse(JSON.stringify(array))
+      const _array: T[] = [...array]
       _array.unshift(item)
       setArray(_array)
     },
@@ -109,7 +110,7 @@ export function useArray<T>(initialValue?: T[]): [T[], ArrayActions<T>] {
 
   const updateAt = useCallback(
     (index: number, item: T) => {
-      const _array: T[] = JSON.parse(JSON.stringify(array))
+      const _array: T[] = [...array]
       if (!!_array.length) {
         _array[index] = item
       } else {
@@ -122,7 +123,7 @@ export function useArray<T>(initialValue?: T[]): [T[], ArrayActions<T>] {
 
   const insertAt = useCallback(
     (index: number, item: T) => {
-      const _array: T[] = JSON.parse(JSON.stringify(array))
+      const _array: T[] = [...array]
       _array.splice(index, 0, item)
       setArray(_array)
     },
@@ -131,7 +132,7 @@ export function useArray<T>(initialValue?: T[]): [T[], ArrayActions<T>] {
 
   const removeAt = useCallback(
     (index: number) => {
-      const _array: T[] = JSON.parse(JSON.stringify(array))
+      const _array: T[] = [...array]
       delete _array[index]
       setArray(_array.filter((item) => !!item))
     },

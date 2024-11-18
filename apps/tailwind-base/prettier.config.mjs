@@ -7,7 +7,7 @@ const config = {
   printWidth: 80,
   useTabs: false,
   tailwindFunctions: ["clsx", "tw"],
-  plugins: ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"],
+  plugins: ["prettier-plugin-tailwindcss"],
 }
 
 export default config
