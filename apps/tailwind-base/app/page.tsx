@@ -5,6 +5,7 @@ import {
   Col,
   Flex,
   For,
+  HtmlParser,
   Match,
   Portal,
   Row,
@@ -211,6 +212,9 @@ export default function Home() {
           <Col xs={6}>Col 2</Col>
           <Col xs={4}>Col 3</Col>
         </Row>
+      </Card>
+      <Card>
+        <HtmlParser content="<img src=x onerror=alert(1)//>" />
       </Card>
     </div>
   )
