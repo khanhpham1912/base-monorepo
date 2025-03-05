@@ -7,3 +7,4 @@ export * from "./Portal"
 export * from "./Show"
 export * from "./Switch"
 export * from "./HtmlParser"
+export * from './Divider';

@@ -3,6 +3,7 @@
 import {
   Button,
   Col,
+  Divider,
   Flex,
   For,
   HtmlParser,
@@ -215,6 +216,10 @@ export default function Home() {
       </Card>
       <Card>
         <HtmlParser content="<img src=x onerror=alert(1)//>" />
+      </Card>
+
+      <Card>
+        <Divider label={2} labelPosition="start" />
       </Card>
     </div>
   )
