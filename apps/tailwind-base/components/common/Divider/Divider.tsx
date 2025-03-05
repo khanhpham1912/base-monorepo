@@ -1,6 +1,6 @@
 import { cn } from "@/utils/classNames"
 import { Show } from "../Show"
-import React from "react"
+import React, { useMemo } from "react"
 
 type LabelPosition = "start" | "end" | "center"
 
@@ -16,6 +16,7 @@ export const Divider = ({
   label?: React.ReactNode
   labelPosition?: LabelPosition
 } & React.ComponentPropsWithoutRef<"hr">) => {
+  const hasLabel = useMemo(() => !!label, [label])
   return (
     <div className="relative">
       <div aria-hidden="true" className="absolute inset-0 flex items-center">
@@ -29,7 +30,7 @@ export const Divider = ({
           )}
         />
       </div>
-      <Show when={!!label}>
+      <Show when={hasLabel}>
         <div
           className={cn("relative flex", {
             "justify-start": labelPosition === "start",

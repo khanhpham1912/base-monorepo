@@ -5,8 +5,8 @@ import { useContext, useMemo } from "react"
 import { RowContext } from "./RowContext"
 
 interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
-  //   offset?: number
   xs?: number
+  sm?: number
   md?: number
   lg?: number
   xl?: number
@@ -15,14 +15,18 @@ interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Col = React.forwardRef<HTMLDivElement, ColProps>(
-  ({ className, xs, md, lg, xl, xxl, children, ...props }, ref) => {
+  ({ className, xs, sm, md, lg, xl, xxl, children, ...props }, ref) => {
     const { layout } = useContext(RowContext)
     const prefixLayoutCls = useMemo(
       () => (layout === "vertical" ? "row" : "col"),
       [layout],
     )
-
+    // xs is the remaining media
     const xsLayoutGen = useMemo(
+      () => `${prefixLayoutCls}-span-${xs}`,
+      [xs, prefixLayoutCls],
+    )
+    const smLayoutGen = useMemo(
       () => `sm:${prefixLayoutCls}-span-${xs}`,
       [xs, prefixLayoutCls],
     )
@@ -48,6 +52,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>(
         className={cn(
           {
             [xsLayoutGen]: !!xs,
+            [smLayoutGen]: !!sm,
             [mdLayoutGen]: !!md,
             [lgLayoutGen]: !!lg,
             [xlLayoutGen]: !!xl,
